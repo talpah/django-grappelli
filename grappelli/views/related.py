@@ -147,7 +147,7 @@ class AutocompleteLookup(RelatedLookup):
         return qs.distinct()
 
     def get_data(self):
-        return [{"value": f.pk, "label": get_label(f)} for f in self.get_queryset()[:AUTOCOMPLETE_LIMIT]]
+        return [{"value": f.id, "label": get_label(f)} for f in self.get_queryset()[:AUTOCOMPLETE_LIMIT]]
 
     @never_cache
     def get(self, request, *args, **kwargs):
